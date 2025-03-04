@@ -1,0 +1,6 @@
+1.
+b) O método guloso se baseia no pricípio de fazer a melhor escolha no momento da decisão, então ele se torna
+apto a resolver problemas que aceitem esta estratégia. Entretando, alguns casos não funcionam bem -- ou simplesmente não funcionam -- com o método guloso.
+Em relação a problema do troco, poderíamos ter um conjunto S = {1,3,4} de moedas. Se tentássemos somar o valor 6, o algoritmo da resposta a) apontaria como resposta 1 moeda de 4 reais e 2 moedas de 1 real (3 moedas no total). Entretanto, a resposta ideal seria: 2 moedas de 3 reais (2 moedas no total).
+Geralmente, os casos nos quais ser guloso não é bom são problemas nos quais as primeiras opções são vantajosas para a estratégia, mas, em seguida, se tornam piores do que as outras. Um outroexemplo simples: você está indo em uma viagem longa e tem 3 caminhos disponíveis: A, B e C. Cada caminho tem 3 pedágios, cada qual com seu custo.
+se os primeiros pedágios de cada caminho custarem, respectivamente, 50, 100 e 200 reais, o método guloso irá escolher o caminho A, sempre, mesmo que, ao final do trajeto, ele tenha um custo total maior do que, por exemplo, o caminho C. Como esse método sempre faz a melhor decisão baseada no atual momento, ele não é capaz de comparar os trajetos como um todo.
