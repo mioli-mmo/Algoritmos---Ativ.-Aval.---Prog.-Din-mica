@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-int menorTroco(std::vector<int> s, int n, int v) {
+int menorTroco(std::vector<int> &s, int n, int v) {
 
 	std::vector<int> resp;
 	
@@ -20,7 +20,7 @@ int menorTroco(std::vector<int> s, int n, int v) {
 
 int main() {
 	std::vector<int> s = {1,2,5,10,20,50,100,200,500};
-	int n = 9;
+	int n = s.size();
 	
 	std::cout << menorTroco(s, n, 7) << std::endl;
 
