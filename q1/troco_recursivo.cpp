@@ -14,7 +14,7 @@ int troco_recursivo(std::vector<int> &c, int n, int v)
         if (c[i] <= v) // inclui moeda atual caso não seja maior que v
         {
             int conta = troco_recursivo(c, n, v - c[i]); // chamada recursiva incluindo moeda
-            if (conta + 1 < resp) // se conta atual < conta resp, substitua
+            if ( (conta != INT_MAX) && (conta + 1 < resp) ) // se conta atual < conta resp, substitua
                 resp = conta + 1;
         }
     }
@@ -26,15 +26,20 @@ int troco_recursivo(std::vector<int> &c, int n, int v)
 }
 
 int main() {
-	std::vector<int> c = {1,2,5,10,20,50,100,200,500};
-	int n = c.size();
+	
+	int n;
 	int v;
+	
+	std::cin >> n;
+	std::vector<int> c(n);
+	
+	for (int i = 0; i < n; i++) {
+		std::cin >> c[i]; 
+	}
 	
 	std::cin >> v;
 	
 	std::cout << troco_recursivo(c, n, v) << std::endl;
 
 	return 0;
-}
-
-// conta != INT_MAX && 
+}	
