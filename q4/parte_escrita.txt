@@ -1,0 +1,10 @@
+4.
+a) A função de recorrência é:
+moedas_rec(c, n, v) = moedas_rec(c, n, v-moedas_rec[n-1]) + moedas_rec(c, n-1, v)
+
+moedas_rec --> função.
+		 c --> vetor das moedas.
+		 n --> quantidade de moedas em 'c'.
+		 v --> valor-alvo.
+		 
+e) A comparação entre esses dois códigos é similar à da questão anterior (3.): a abordagem recursiva traz complexidade O(2^n), enquanto a estratégia de programação dinâmica, O(n*v). Na prática, o programa recursivo pode até ser mais fácil de entender ou ser de bom uso com valores menores, mas escala rapidamente, pois muitas computações repetitivas serão feitas de maneira desnecessária; poderíamos ter usado recursividade com memoização para contornar o problema, se não quiséssemos fugir da recursão. Enquanto isso, o programa que usa tabulação quebra o problema maior em subproblemas e armazenas seus resultados numaa tabela (que pode ser impressa rodando o código 'moedas_pd_imprime.cpp'); dessa forma, vamos constrindo o resultad final baseado nos resultados fragmentados, sem computações desnecessárias.
