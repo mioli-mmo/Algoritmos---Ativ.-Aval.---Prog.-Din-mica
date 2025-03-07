@@ -13,14 +13,17 @@ int max_paginas_pd(int orcamento, std::vector<Livro> &livros) {
 
     for (int i = 0; i <= n; i++) { // itera livros
         for (int j = 0; j <= orcamento; j++) { // itera orçamento
-            if (i == 0 || j == 0) // casos de base
+            if (i == 0 || j == 0) { // casos de base
                 pd[i][j] = 0;
-            else if (livros[i - 1].preco <= j) // se for possível comprar o livro:				// max entre:
+            }
+            else if (livros[i - 1].preco <= j) { // se for possível comprar o livro:				// max entre:
                 pd[i][j] = std::max(livros[i - 1].paginas + pd[i - 1][j - livros[i - 1].preco], // compra o livro
-                																				// e subtrai preço
-                           pd[i - 1][j]);													// ou valor armazenado
-            else
+															// e subtrai preço
+                           pd[i - 1][j]);
+			}												// ou valor armazenado
+            else {
                 pd[i][j] = pd[i - 1][j]; // se não pode comprar livro, copia valor anterior
+            }
         }
     }
     return pd[n][orcamento]; // resultado final está no final da matriz
