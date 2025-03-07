@@ -6,10 +6,8 @@ struct Livro {
 	int paginas;
 };
 
-int max_paginas_pd(int orcamento, std::vector<Livro> &livros) {
+int max_paginas_pd(int orcamento, std::vector<Livro> &livros, std::vector<std::vector<int>> &pd) {
     int n = livros.size();
-    std::vector<std::vector<int>> pd(n + 1, std::vector<int>(orcamento + 1)); // cria um vetor 2D:
-    																		  // livros x orçamento
 
     for (int i = 0; i <= n; i++) { // itera livros
         for (int j = 0; j <= orcamento; j++) { // itera orçamento
@@ -26,19 +24,21 @@ int max_paginas_pd(int orcamento, std::vector<Livro> &livros) {
             }
         }
     }
+    
     return pd[n][orcamento]; // resultado final está no final da matriz
 }
 
 int main() {
 	int n;
 	int orcamento;
+	
 	std::cin >> n >> orcamento;
+	std::vector<std::vector<int>> pd(n + 1, std::vector<int>(orcamento + 1)); // cria a tabela
     std::vector<Livro> livros(n);
     
     for (int i = 0; i < n; i++) { // recebe dados dos livros
     	std::cin >> livros[i].preco >> livros[i].paginas;
     }
-
-    std::cout << max_paginas_pd(orcamento, livros) << std::endl;
+    
     return 0;
 }
